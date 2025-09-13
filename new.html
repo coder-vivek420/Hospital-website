@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CarePlus Medical — Health, Appointments & Teleconsultation</title>
+  <meta name="description" content="CarePlus — modern medical website with online appointments, doctor directory, teleconsultation, pharmacy and patient resources." />
+  <link rel="stylesheet" href="new.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">CarePlus</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#tele">Teleconsult</a>
+    <a href="#packages">Health Packages</a>
+    <a href="#pharmacy">Pharmacy</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a class="cta" href="#book">Book Now</a>
+  </nav>
+  <div class="flag"></div> <!-- Indian flag -->
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Better care starts with one click</h1>
+    <p class="lead">Book appointments, start telemedicine, order medicines — all from the comfort of your home.</p>
+    <div class="features">
+      <div class="feature"><div class="ico">🩺</div><div><b>Appointments</b><div style="font-size:13px;color:var(--muted)">Book instantly</div></div></div>
+      <div class="feature"><div class="ico">💻</div><div><b>Teleconsult</b><div style="font-size:13px;color:var(--muted)">Video or chat</div></div></div>
+      <div class="feature"><div class="ico">💊</div><div><b>Pharmacy</b><div style="font-size:13px;color:var(--muted)">Fast delivery</div></div></div>
+    </div>
+    <div class="appoint" id="book">
+      <form onsubmit="bookAppointment();return false;">
+        <div class="row">
+          <input id="name" placeholder="Your name" required>
+          <input id="phone" placeholder="Phone number" required>
+        </div>
+        <div class="row">
+          <select id="dept">
+            <option>General Physician</option>
+            <option>Cardiology</option>
+            <option>Dermatology</option>
+          </select>
+          <input id="date" type="date">
+        </div>
+        <div class="row" style="justify-content:space-between">
+          <label><input type="checkbox" id="tele"> Teleconsult?</label>
+          <button class="btn">Book Appointment</button>
+        </div>
+        <div id="apptMsg" style="margin-top:8px;display:none;color:green;font-weight:700">✅ Appointment booked!</div>
+      </form>
+    </div>
+  </div>
+  <div>
+    <div class="card">
+      <h3>Quick Stats</h3>
+      <p><b>+120</b> Doctors • <b>24,560</b> Patients</p>
+      <p>⭐ 97% Positive Reviews</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png" alt="Doctor" style="width:80px;margin:10px auto;">
+      <button class="btn" onclick="location.hash='#doctors'">Find Doctor</button>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <h2>“We Care For You”</h2>
+  <p>Your health, our priority — because every life matters ❤️</p>
+</section>
+
+<section id="services">
+  <h2 style="text-align:center;margin-bottom:20px;">Our Services</h2>
+  <div class="services">
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814546-8f1eae79d9ab?auto=format&fit=crop&w=800&q=80')"><h4>General Consultation</h4><p>Experienced physicians for everyday health needs.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814429-bad7b81a1d2a?auto=format&fit=crop&w=800&q=80')"><h4>Specialist Care</h4><p>Expert cardiology, neurology, orthopedics and more.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814006-95f47e82d49d?auto=format&fit=crop&w=800&q=80')"><h4>Diagnostics</h4><p>Home sample collection and fast lab reports.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776813778-bbd62c2e74f3?auto=format&fit=crop&w=800&q=80')"><h4>Telemedicine</h4><p>Video & chat consults from your home.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814372-3bd16d8a05a1?auto=format&fit=crop&w=800&q=80')"><h4>Pharmacy</h4><p>Doorstep delivery for prescriptions & essentials.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814469-3a1c2a7e1d8f?auto=format&fit=crop&w=800&q=80')"><h4>Health Packages</h4><p>Preventive screenings for heart & diabetes.</p></div>
+  </div>
+</section>
+
+<section id="doctors">
+  <h2 style="text-align:center;margin:30px 0;">Meet Our Doctors</h2>
+  <div class="doctors" id="docList"></div>
+</section>
+
+<section id="tele">
+  <div class="cta-banner">
+    <div>
+      <h3>Start a Secure Teleconsultation</h3>
+      <p>Connect with certified doctors within minutes.</p>
+    </div>
+    <button class="btn" onclick="openTele()">Start Now</button>
+  </div>
+</section>
+
+<section id="packages">
+  <h2 style="text-align:center;margin:30px 0;">Health Packages</h2>
+  <div class="services">
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814702-f9c9f4f8a0e7?auto=format&fit=crop&w=800&q=80')"><h4>Heart Checkup</h4><p>Comprehensive heart screening package.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814673-98fb364a7e06?auto=format&fit=crop&w=800&q=80')"><h4>Diabetes Screening</h4><p>Blood sugar & HbA1c tests.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814749-0c1c65b3a9c8?auto=format&fit=crop&w=800&q=80')"><h4>Full Body Checkup</h4><p>Complete preventive health assessment.</p></div>
+  </div>
+</section>
+
+<section id="pharmacy">
+  <h2 style="text-align:center;margin:30px 0;">Pharmacy & Medicines</h2>
+  <div class="services">
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814768-4cbe3a99b0f8?auto=format&fit=crop&w=800&q=80')"><h4>Prescription Medicines</h4><p>Order your regular medicines online.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814819-23d4953ea055?auto=format&fit=crop&w=800&q=80')"><h4>Health Supplements</h4><p>Vitamins, minerals & nutrition products.</p></div>
+    <div class="service-card" style="background-image:url('https://images.unsplash.com/photo-1588776814849-84c7c22f2b43?auto=format&fit=crop&w=800&q=80')"><h4>Home Delivery</h4><p>Fast delivery to your doorstep.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 style="text-align:center;margin:30px 0;">About CarePlus</h2>
+  <div class="card" style="max-width:900px;margin:auto;">
+    <p>CarePlus is a modern healthcare platform providing online appointments, teleconsultations, pharmacy delivery, and preventive health packages. Our mission is to make healthcare accessible, convenient, and safe for everyone.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 style="text-align:center;margin:30px 0;">Contact Us</h2>
+  <div class="card" style="max-width:600px;margin:auto;">
+    <p>Email: support@careplus.example</p>
+    <p>Phone: +91-9562875645</p>
+    <p>Address: 123 Health Street, Wellness City</p>
+  </div>
+</section>
+
+<footer>
+  <div><b>CarePlus</b> © 2025</div>
+  <div>Contact: support@careplus.example | +91-9562875645</div>
+</footer>
+
+
+<script src="new.js"></script>
+</body>
+</html>
